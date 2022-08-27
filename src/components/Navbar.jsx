@@ -10,13 +10,14 @@ const Navbar = () => {
 
   return (
     <nav className="w-full flex py-6 justify-between items-center navbar">
-        <img src = { logo } alt="hoobank" className="w-[124px] h-[32px]" onClick={() => window.open(``)}/>
+        <img src = { logo } alt="hoobank" className="w-[124px] h-[32px] cursor-pointer" onClick={() => window.open(`/`)}/>
 
       <ul className="list-none sm:flex hidden justify-end items-center flex-1">
         {navLinks.map((nav, index) => (
           <li
             key={nav.id}
             className = {`font-poppins font-normal cursor-pointer text-[16px] text-white hover:text-secondary transition-colors duration-300  ${index === navLinks.length - 1 ? 'mr-0' : 'mr-10'}`}
+            onClick = {() => settoggle(toggle)}
           >
             <a href={`#${nav.id}`}> {nav.title} </a>
           </li>
@@ -31,7 +32,7 @@ const Navbar = () => {
         />
       </div>
 
-      <div className={`${toggle ? 'flex' : 'hidden'} p-6 bg-black-gradient absolute top-20 right-0 
+      <div className={`${toggle ? 'flex' : 'hidden'} w-2/3 p-6 bg-black-gradient absolute top-20 right-0 
         mx-4 my-6 min-w-[140px] rounded-xl sidebar`}>
         <ul className="list-none flex justify-end items-center flex-col flex-1">
           {navLinks.map((nav, index) => (
